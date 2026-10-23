@@ -1,0 +1,51 @@
+{
+  "name": "alexa-taskflow",
+  "version": "1.0.0",
+  "description": "A self-hosted MCP server that lets Alexa+ run developer workflows by voice",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "node --env-file=.env --import tsx --watch src/server.ts",
+    "build": "tsc",
+    "start": "node --env-file=.env dist/server.js",
+    "smoke": "node scripts/smoke.mjs",
+    "test": "vitest run",
+    "lint": "eslint src tests",
+    "format": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "inspect": "npx @modelcontextprotocol/inspector"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "alexa",
+    "voice",
+    "streamable-http",
+    "developer-workflows"
+  ],
+  "author": "Bhadresh",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "3.1140.0",
+    "@aws-sdk/lib-dynamodb": "3.1140.0",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "express": "5.0.1",
+    "zod": "3.24.2"
+  },
+  "overrides": {
+    "qs": "6.16.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.17.0",
+    "@types/express": "5.0.0",
+    "@types/node": "22.10.2",
+    "eslint": "9.17.0",
+    "prettier": "3.4.2",
+    "tsx": "4.19.2",
+    "typescript": "5.7.3",
+    "typescript-eslint": "8.18.2",
+    "vitest": "3.0.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
