@@ -6,9 +6,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 RUN npm install
 
-COPY tsconfig.json ./
-COPY src/ ./src/
-COPY demo/ ./demo/
+COPY . .
 
 RUN npm run build
 
@@ -27,7 +25,6 @@ COPY package.json package-lock.json* ./
 RUN npm install --omit=dev && npm cache clean --force
 
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/src/demo ./dist/demo
 COPY --from=builder /app/src/demo ./src/demo
 
 USER nodejs
